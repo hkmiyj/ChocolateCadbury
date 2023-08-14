@@ -1,0 +1,6 @@
+com\cadbury\cadburychocolatereport\Chocolate\Chocolate.class
+com\cadbury\cadburychocolatereport\Chocolate\ChocolateConfiguration.class
+com\cadbury\cadburychocolatereport\Application.class
+com\cadbury\cadburychocolatereport\Chocolate\ChocolateRepository.class
+com\cadbury\cadburychocolatereport\Chocolate\ChocolateService.class
+com\cadbury\cadburychocolatereport\Chocolate\ChocolateController.class
