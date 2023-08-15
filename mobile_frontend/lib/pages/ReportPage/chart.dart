@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_frontend/configs/colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -55,8 +57,11 @@ class _ChartState extends State<Chart> {
             DoughnutSeries<_ChartData, String>(
               dataSource: List.generate(chocolates.length, (index) {
                 final chocolate = chocolates[index];
-                return _ChartData(chocolate.chocolateType,
-                    chocolate.volume.toDouble(), graphColor[index]);
+                return _ChartData(
+                  chocolate.chocolateType,
+                  chocolate.volume.toDouble(),
+                  graphColor[Random().nextInt(graphColor.length - 1)],
+                );
               }),
               onPointTap: (pointInteractionDetails) {},
               pointColorMapper: (_ChartData data, _) => data.color,
@@ -79,7 +84,7 @@ class _ChartState extends State<Chart> {
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
               return HorizontalListViewItem(
-                itemColor: graphColor[index],
+                itemColor: graphColor[Random().nextInt(graphColor.length - 1)],
                 title: chocolates[index].chocolateType,
                 value: chocolates[index].volume.toString(),
                 isSelected: false,
