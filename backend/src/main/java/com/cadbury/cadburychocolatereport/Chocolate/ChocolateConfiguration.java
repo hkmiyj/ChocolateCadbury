@@ -24,8 +24,12 @@ public class ChocolateConfiguration {
     @Bean
     CommandLineRunner commandLineRunner(ChocolateRepository repository) {
         return args -> {
-            List<Chocolate> chocolates = loadCsvData();
-            repository.saveAll(chocolates);
+            try {
+                List<Chocolate> chocolates = loadCsvData();
+                repository.saveAll(chocolates);
+            } catch (Exception e) {
+                System.out.println("Seed Data Already Inserted");
+            }
         };
     }
 

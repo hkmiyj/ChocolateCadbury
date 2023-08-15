@@ -8,7 +8,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-@Table
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "UniqueTypeAndDate", columnNames = { "chocolateType", "productionDate" })
+})
 public class Chocolate {
     @Id
     @SequenceGenerator(name = "chocolate_sequence", sequenceName = "chocolate_sequence", allocationSize = 1)
