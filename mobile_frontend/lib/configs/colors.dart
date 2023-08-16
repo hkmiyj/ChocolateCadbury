@@ -6,14 +6,14 @@ const tertiaryColor = Color(0xFF87C0CD);
 const backgroundColor = Color(0xFFF1F1F1);
 const logoColor = Color(0xFF482683);
 const List<Color> graphColor = [
-  Color(0xFF064ACB),
-  Color(0xFF366ED8),
-  Color(0xFF749BC2),
-  Color(0xFF91C8E4),
-  Color(0xFFA4EBF3),
+  Color(0xFFADD8E6),
+  Color(0xFF4682B4),
+  Color(0xFF00BFFF),
+  Color(0xFF1E90FF),
+  Color(0xFF6A5ACD),
   Color(0xFFCCF2F4),
-  Color(0xFF68BDE1),
-  Color(0xFFF0F0E4),
-  Color(0xFFDB5F29),
-  Color(0xFF7B3C3C),
+  Color(0xFF6495ED),
+  Color(0xFFB0E0E6),
+  Color(0xFF00CED1),
+  Color(0xFF4169E1),
 ];

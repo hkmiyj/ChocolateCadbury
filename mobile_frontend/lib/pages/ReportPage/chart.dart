@@ -21,16 +21,33 @@ class Chart extends StatefulWidget {
 }
 
 class _ChartState extends State<Chart> {
-  int explodeIndex = -1;
+  int? explodeIndex;
+
+  List<Color> generatedColor = [];
+  List<Chocolate> chocolates = [];
+  int totalvolume = 0;
+
+  @override
+  void initState() {
+    chocolates = widget.listChocolate;
+
+    generatedColor.addAll([
+      ...chocolates
+          .map((e) => graphColor[Random().nextInt(graphColor.length - 1)])
+          .toList()
+    ]);
+
+    totalvolume = chocolates.fold(
+        0, (previousValue, chocolate) => previousValue + chocolate.volume);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<Chocolate> chocolates = widget.listChocolate;
-    int totalvolume = chocolates.fold(
-        0, (previousValue, chocolate) => previousValue + chocolate.volume);
     return Column(
       children: [
         SfCircularChart(
+          enableMultiSelection: false,
           annotations: [
             CircularChartAnnotation(
               horizontalAlignment: ChartAlignment.center,
@@ -60,19 +77,20 @@ class _ChartState extends State<Chart> {
                 return _ChartData(
                   chocolate.chocolateType,
                   chocolate.volume.toDouble(),
-                  graphColor[Random().nextInt(graphColor.length - 1)],
+                  generatedColor[index],
                 );
               }),
-              onPointTap: (pointInteractionDetails) {},
+              onPointTap: (pointInteractionDetails) {
+                setState(() {
+                  explodeIndex = pointInteractionDetails.pointIndex;
+                });
+              },
               pointColorMapper: (_ChartData data, _) => data.color,
               xValueMapper: (_ChartData data, _) => data.category,
               yValueMapper: (_ChartData data, _) => data.value,
-              dataLabelSettings: const DataLabelSettings(
-                isVisible: false,
-                labelPosition: ChartDataLabelPosition.outside,
-              ),
               explode: true,
               enableTooltip: true,
+              explodeIndex: explodeIndex,
             ),
           ],
         ),
@@ -84,10 +102,11 @@ class _ChartState extends State<Chart> {
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
               return HorizontalListViewItem(
-                itemColor: graphColor[Random().nextInt(graphColor.length - 1)],
+                itemColor: generatedColor[index],
                 title: chocolates[index].chocolateType,
                 value: chocolates[index].volume.toString(),
-                isSelected: false,
+                isSelected: explodeIndex == index,
+                onTap: () {},
               );
             },
           ),

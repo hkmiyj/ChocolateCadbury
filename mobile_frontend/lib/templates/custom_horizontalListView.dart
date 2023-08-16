@@ -6,6 +6,7 @@ class HorizontalListViewItem extends StatelessWidget {
   final String value;
   final Color itemColor;
   final bool isSelected; // Add this variable
+  final void Function()? onTap;
 
   const HorizontalListViewItem({
     Key? key,
@@ -13,54 +14,49 @@ class HorizontalListViewItem extends StatelessWidget {
     required this.value,
     required this.itemColor,
     required this.isSelected, // Initialize isSelected
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        // Add logic to handle item selection here
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 3.w),
-        decoration: BoxDecoration(
-          boxShadow: isSelected
-              ? [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: Offset(0, 3), // Adjust the offset as needed
-                  ),
-                ]
-              : null,
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            color: isSelected ? Colors.lightBlueAccent : Colors.white,
+          ),
         ),
-        child: Row(
-          children: [
-            SizedBox(
-              child: Icon(
-                Icons.circle,
-                color: itemColor,
-                size: 25.sp,
+        elevation: isSelected ? 3.sp : 0,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 3.w),
+          child: Row(
+            children: [
+              SizedBox(
+                child: Icon(
+                  Icons.circle,
+                  color: itemColor,
+                  size: 25.sp,
+                ),
               ),
-            ),
-            SizedBox(width: 1.w),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 15.sp),
-                ),
-                Text(
-                  value,
-                  style: TextStyle(fontSize: 15.sp),
-                ),
-              ],
-            ),
-          ],
+              SizedBox(width: 1.w),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15.sp),
+                  ),
+                  Text(
+                    value,
+                    style: TextStyle(fontSize: 15.sp),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

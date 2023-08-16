@@ -52,8 +52,9 @@ class _MonthlySummaryState extends State<MonthlySummary> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "${widget.month} Summary",
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                    "${widget.month.toUpperCase()}",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
                   ),
                   Chart(
                     listChocolate: widget.listChocolateByMonth,
@@ -76,7 +77,14 @@ class _MonthlySummaryState extends State<MonthlySummary> {
                         : widget.listChocolateByMonth.length,
                     itemBuilder: (context, index) {
                       return Card(
-                        elevation: 2.sp,
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: primaryColor,
+                            width: 0.5.sp,
+                          ),
+                        ),
+                        elevation: 3.sp,
                         child: ListTile(
                           leading: Icon(
                             Icons.nature,

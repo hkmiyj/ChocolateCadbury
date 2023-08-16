@@ -1,1 +1,1 @@
-const host = "https://chocolate-cadbury.onrender.com";
+const host = "https://mobileassessment.vercel.app/";
