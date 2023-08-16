@@ -51,7 +51,7 @@ APK File
 
 To download and install the app, click the following link: 
 - APK Host Using Given API [Download APK](APK/app(given).apk)
-- APK Host Using SpringBoot Backend Locally [(Download)][Download APK](APK\app(local).apk)
+- APK Host Using SpringBoot Backend Locally [Download APK](APK\app(local).apk)
 - APK Host Using SpringBoot Backend Deploy On Render (Takes Time To Load On the first time) [Download APK](APK\app(Render).apk)
 
 Run Debug Mode 
