@@ -11,15 +11,15 @@
 #### List of API Endpoints
 - Get All List of Chocolate
 ```
-https://chocolate-cadbury.onrender.com/chocolate
+[GET]https://chocolate-cadbury.onrender.com/chocolate
 ```
 - Get All List of Chocolate By Type Of Chocolate
 ```
-https://chocolate-cadbury.onrender.com/chocolate?chocolate_type=Caramel
+[GET]https://chocolate-cadbury.onrender.com/chocolate?chocolate_type=Caramel
 ```
 - Get All List of Chocolate By Production Date
 ```
-https://chocolate-cadbury.onrender.com/chocolate?production_date=28-Jan
+[GET]https://chocolate-cadbury.onrender.com/chocolate?production_date=28-Jan
 ```
 
 ### Backend on localhost
@@ -32,15 +32,15 @@ $ java -jar target/backend-cadbury-0.0.1-SNAPSHOT.jar
 
 - Get All List of Chocolate
 ```
-http://localhost:8080/chocolate
+[GET]http://localhost:8080/chocolate
 ```
 - Get All List of Chocolate By Type Of Chocolate
 ```
-http://localhost:8080/chocolate?chocolate_type=Caramel
+[GET]http://localhost:8080/chocolate?chocolate_type=Caramel
 ```
 - Get All List of Chocolate By Production Date
 ```
-http://localhost:8080/chocolate?production_date=2023-01-28
+[GET]http://localhost:8080/chocolate?production_date=2023-01-28
 ```
 
 ### Frontend
