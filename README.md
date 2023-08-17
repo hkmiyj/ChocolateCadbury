@@ -48,11 +48,20 @@ Flutter version (3.10.6)
 
 
 APK File
+There Are 3 Types Of APK 
+1. APK(Given) : https://mobileassessment.vercel.app/
+2. APK(Own Backend Host On Render) : https://chocolate-cadbury.onrender.com/
+3. APK(Host On Localhost) : http://localhost:8080/ 
 
 To download and install the app, click the following link: 
 - APK Host Using Given API [Download APK](APK/app(given).apk)
-- APK Host Using SpringBoot Backend Locally [Download APK](APK\app(local).apk)
-- APK Host Using SpringBoot Backend Deploy On Render (Takes Time To Load On the first time) [Download APK](APK\app(Render).apk)
+- APK Host Using SpringBoot Backend Locally [Download APK](APK/app(local).apk)
+- APK Host Using SpringBoot Backend Deploy On Render (Takes Time To Load On the first time) [Download APK](APK/app(Render).apk)
+
+
+If You want to run the debug mode and change the hostname :
+1. Go To mobile_frontend\lib\configs\host.dart
+2. Change Host (Just uncomment one of the host)
 
 Run Debug Mode 
 ```
